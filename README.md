@@ -6,7 +6,8 @@
 
 `SEMESTRE: 3º`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+Permitirá a criação e divulgação de eventos de diferentes tipos, como shows, workshops, conferências e festas, oferecendo uma interface intuitiva tanto para os organizadores quanto para os participantes. A plataforma facilitará a venda de ingressos online, oferecendo diversas opções de pagamento, além de permitir o envio automático de ingressos eletrônicos para os compradores. Os organizadores poderão acompanhar em tempo real as vendas, gerenciar listas de participantes e utilizar ferramentas de marketing para promover seus eventos, tudo em um único lugar.
+Além das funcionalidades básicas de venda de ingressos, o projeto priorizará a experiência do usuário, garantindo uma navegação simples e rápida. Recursos como filtragem de eventos por localização, categoria e data, além de notificações personalizadas para os usuários, ajudarão a conectar as pessoas aos eventos de seu interesse. A plataforma também terá integrações com redes sociais e sistemas de pagamento populares, proporcionando maior visibilidade aos eventos e conveniência aos usuários. Com foco em usabilidade, segurança e inovação, o projeto busca ser uma solução completa para quem organiza e participa de eventos.
 
 ## Integrantes
 
