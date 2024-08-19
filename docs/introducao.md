@@ -1,20 +1,23 @@
 # 1. INTRODUÇÃO
 
-Contextualizar a área de pesquisa do trabalho, apresentando conceitos e dados relacionados antes de apresentar a problemática a ser investigada.
+A crescente demanda por eventos e a popularização das plataformas digitais têm transformado a forma como as pessoas adquirem ingressos. Aplicativos como Sympla e Eventim facilitaram esse processo, mas ainda existe uma lacuna em termos de personalização e direcionamento de eventos para o público certo. Nesse contexto, a aplicação "Bombou" surge como uma alternativa inovadora, oferecendo uma experiência customizada para os usuários através de tags, que conectam as preferências dos usuários diretamente aos eventos que melhor se encaixam em seus interesses.
 
 ## 1.1. Problema
 
-Nesse momento você deve apresentar o problema que a sua aplicação deve resolver. No entanto, não é a hora de comentar sobre a aplicação. 
-Descreva também o contexto em que essa aplicação será usada, se houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de fato existir, pois ainda não é a hora de apresentar requisitos detalhados ou projetos.
+Apesar do avanço nas plataformas de venda de ingressos, muitas vezes os usuários encontram dificuldades em localizar eventos que realmente correspondam aos seus interesses específicos. As opções disponíveis são amplas, mas a falta de filtros adequados e de uma curadoria personalizada pode resultar em uma experiência dispersa e pouco intuitiva. Essa realidade gera um desafio tanto para organizadores, que desejam alcançar o público certo, quanto para os consumidores, que buscam experiências alinhadas aos seus gostos pessoais.
 
 ## 1.2. Objetivos do trabalho
 
-Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. O objetivo geral deve resumir e apresentar a ideia central de um trabalho, descrevendo também a sua finalidade. Os objetivos específicos darão uma maior delimitação ao tema, além de detalhar os processos necessários para a realização do trabalho.
+O objetivo geral deste trabalho é desenvolver a aplicação "Bombou", que tem como propósito resolver o problema de falta de personalização na descoberta de eventos, utilizando a tecnologia de tags para conectar usuários e eventos de maneira mais precisa e eficiente. Os objetivos específicos incluem:
+
+    Implementar um sistema de tags que permita a customização dos eventos conforme os interesses dos usuários.
+    Desenvolver uma interface amigável que facilite a navegação e a busca por eventos.
+    Criar um algoritmo que utilize as tags para sugerir eventos personalizados aos usuários.
 
 ## 1.3. Justificativa
 
-Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
+A motivação para o desenvolvimento do "Bombou" reside na necessidade crescente por personalização em um mercado saturado por opções genéricas. A aplicação busca atender a uma demanda não só dos consumidores, mas também dos organizadores de eventos, que precisam alcançar seus públicos de forma mais eficaz. A customização através de tags representa uma inovação que pode melhorar significativamente a experiência do usuário, tornando a busca por eventos mais intuitiva e alinhada aos interesses pessoais.
 
 ## 1.4. Público alvo
 
-Descreva quem serão as pessoas que usarão a sua aplicação indicando os diferentes perfis. O objetivo aqui não é definir quem serão os clientes ou quais serão os papéis dos usuários na aplicação. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações hierárquicas, etc.
+O público-alvo do "Bombou" é composto por dois perfis principais: os consumidores, que variam desde jovens adultos até profissionais em busca de eventos específicos que reflitam seus interesses; e os organizadores de eventos, que procuram meios eficazes de promover seus eventos para o público adequado. Ambos os perfis possuem familiaridade com tecnologias digitais e buscam soluções práticas e eficazes para facilitar o processo de compra e venda de ingressos.
