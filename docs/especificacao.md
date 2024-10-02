@@ -3,7 +3,7 @@
 Nesta parte do trabalho você deve detalhar a documentação dos requisitos do sistema proposto de acordo com as seções a seguir. Ressalta-se que aqui é utilizado como exemplo um sistema de gestão de cursos de aperfeiçoamento.
 
 ## 3.1 Objetivos deste documento
-Descrever e especificar as necessidades da Coordenação do Curso de Sistemas de Informação da PUC Minas que devem ser atendidas pelo projeto SCCA – Sistema de Cadastro de Cursos de Aperfeiçoamento.
+Descrever e especificar as necessidades que devem ser atendidas pelo projeto "Bombou" – uma plataforma de eventos personalizada. Este documento visa detalhar os requisitos do sistema, incluindo suas funcionalidades principais, limites e usuários, garantindo que a solução atenda às expectativas tanto dos consumidores quanto dos organizadores de eventos.
 
 ## 3.2 Escopo do produto
 
