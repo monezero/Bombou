@@ -1,6 +1,5 @@
 # 3. DOCUMENTO DE ESPECIFICAÇÃO DE REQUISITOS DE SOFTWARE
 
-Nesta parte do trabalho você deve detalhar a documentação dos requisitos do sistema proposto de acordo com as seções a seguir. Ressalta-se que aqui é utilizado como exemplo um sistema de gestão de cursos de aperfeiçoamento.
 
 ## 3.1 Objetivos deste documento
 Descrever e especificar as necessidades que devem ser atendidas pelo projeto "Bombou" – uma plataforma de eventos personalizada. Este documento visa detalhar os requisitos do sistema, incluindo suas funcionalidades principais, limites e usuários, garantindo que a solução atenda às expectativas tanto dos consumidores quanto dos organizadores de eventos.
@@ -8,22 +7,26 @@ Descrever e especificar as necessidades que devem ser atendidas pelo projeto "Bo
 ## 3.2 Escopo do produto
 
 ### 3.2.1 Nome do produto e seus componentes principais
-O produto será denominado SCCA – Sistema de Cadastro de Cursos de Aperfeiçoamento. Ele terá somente um componente (módulo) com os devidos elementos necessários à gestão de cursos.
+O produto será denominado "Bombou" e terá três componentes principais:
+
+**Cadastro de eventos:** Permite que os organizadores criem e gerenciem seus eventos na plataforma.<br>
+**Preferências personalizadas:** Relaciona os eventos aos interesses dos usuários, facilitando a busca por eventos que combinem com seus gostos.<br>
+**Recomendação de eventos:** Sugere eventos personalizados aos usuários com base nas suas preferências e interesses..<br>
 
 ### 3.2.2 Missão do produto
-Gerenciar informações sobre a oferta de cursos de aperfeiçoamento, gerenciar a composição das turmas, alunos, professores e matrículas. 
+Facilitar a descoberta e a participação em eventos que realmente interessem aos usuários, conectando suas preferências aos eventos adequados. Além disso, ajudar os organizadores a alcançarem o público certo, aumentando a relevância e o envolvimento com seus eventos. 
 
 ### 3.2.3 Limites do produto
-O SCCA não fornece nenhuma forma de avaliação de alunos, pagamento de parcelas do curso, pagamento a professore e agendamentos. O SCCA não contempla o atendimento a vários cursos de Sistemas de Informação de outras unidades da PUC Minas.
+O "Bombou" não gerencia pagamentos de ingressos, não retendo o dinheiro dos usuários. Todas as transações são realizadas em plataformas externas, garantindo que os organizadores recebam os pagamentos diretamente. Além disso, não possui um sistema para coletar avaliações; esse feedback deve ser feito em plataformas externas.
 
 ### 3.2.4 Benefícios do produto
 
 | # | Benefício | Valor para o Cliente |
 |--------------------|------------------------------------|----------------------------------------|
-|1	| Facilidade no cadastro de dados |	Essencial |
-|2 | Facilidade na recuperação de informações | Essencial | 
-|3 | Segurança no cadastro de matrículas | Essencial | 
-|4	| Melhoria na comunicação com os alunos	| Recomendável | 
+|1	| Personalização na descoberta de eventos |	Essencial |
+|2 | Alcance direcionado de eventos para o público correto	 | Essencial | 
+|3 | Navegação intuitiva para encontrar eventos relevantes | Essencial | 
+|4	| Maior eficiência para os organizadores dos eventos	| Recomendável | 
 
 ## 3.3 Descrição geral do produto
 
