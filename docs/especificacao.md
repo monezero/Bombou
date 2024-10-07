@@ -33,20 +33,44 @@ O "Bombou" não gerencia pagamentos de ingressos, não retendo o dinheiro dos us
 ### 3.3.1 Requisitos Funcionais
 
 | Código | Requisito Funcional (Funcionalidade) | Descrição |
-|--------------------|------------------------------------|----------------------------------------|
-| RF1 | Gerenciar Curso de Aperfeiçoamento |	Processamento de Inclusão, Alteração, Exclusão e Consulta de Cursos de Aperfeiçoamento |
-| RF2 |	Gerenciar Professor	| Processamento de Inclusão, Alteração, Exclusão e Consulta de professores |
-| RF3	| Gerenciar Matrícula |	Processamento de Inclusão, Alteração, Exclusão e Consulta de Matrículas de alunos em Cursos de Aperfeiçoamento |
-| ... |	...	| ... |
+|--------|--------------------------------------|-------------------------------------------|
+| RF1    | Comprar Ingressos                    | O sistema deve permitir que o Cliente compre ingressos. |
+| RF2    | Filtrar Eventos                      | O sistema deve permitir que o Cliente filtre eventos. |
+| RF3    | Avaliar Eventos                      | O sistema deve permitir que o Cliente avalie eventos. |
+| RF4    | Consultar Histórico de Compras       | O sistema deve permitir que o Cliente consulte o histórico de compras. |
+| RF5    | Realizar Cadastro                    | O sistema deve permitir que o Cliente realize cadastro. |
+| RF6    | Realizar Login                       | O sistema deve permitir que o Cliente realize login. |
+| RF7    | Realizar Logout                      | O sistema deve permitir que o Cliente realize logout. |
+| RF8    | Escolher Método de Pagamento         | O sistema deve permitir que o Cliente escolha o método de pagamento durante a compra de ingressos. |
+| RF9    | Gerenciar Eventos                    | O sistema deve permitir que o Organizador gerencie eventos (cadastrar, editar, excluir, consultar eventos). |
+| RF10  | Cadastrar Novos Eventos              | O sistema deve permitir que o Organizador cadastre novos eventos. |
+| RF11  | Editar Eventos                       | O sistema deve permitir que o Organizador edite eventos existentes. |
+| RF12  | Excluir Eventos                      | O sistema deve permitir que o Organizador exclua eventos. |
+| RF13  | Consultar Eventos                    | O sistema deve permitir que o Organizador consulte eventos. |
+| RF14   | Criar Notificações Personalizadas    | O sistema deve permitir que o Organizador crie notificações personalizadas. |
+| RF15   | Enviar Notificações                  | O sistema deve permitir que o sistema envie notificações. |
+| RF16   | Enviar Recomendações                 | O sistema deve permitir que o sistema envie recomendações. |
+
 
 ### 3.3.2 Requisitos Não Funcionais
 
-| Código | Requisito Não Funcional (Restrição) |
-|--------------------|------------------------------------|
-| RNF1 | O ambiente operacional a ser utilizado é o Windows XP. |
-| RNF2 | O sistema deverá executar em um computador configurado com uma impressora de tecnologia laser ou de jato de tinta, a ser usada para impressão dos relatórios. |
-| RNF3 |	Segurança	O produto deve restringir o acesso por meio de senhas individuais para o usuário. |
-| ... |	... |	... |
+| Código | Requisito Não Funcional                | Descrição |
+|--------|---------------------------------------|-------------------------------------------|
+| RNF1   | Suporte a Usuários Simultâneos        | O sistema deve ser capaz de suportar até 10.000 usuários simultâneos, sem comprometer a performance. |
+| RNF2 | Tempos de Resposta Adequados          | Deve garantir tempos de resposta adequados, mesmo durante picos de acesso, como o lançamento de eventos populares. |
+| RNF3   | Segurança dos Dados                    | O sistema deve garantir a segurança dos dados dos usuários e transações financeiras, utilizando criptografia de ponta a ponta. |
+| RNF4 | Autenticação de Dois Fatores (2FA)    | O login deve incluir autenticação de dois fatores (2FA) para aumentar a segurança. |
+| RNF5 | Armazenamento Criptografado            | As informações sensíveis devem ser armazenadas de forma criptografada, garantindo a proteção contra acessos não autorizados. |
+| RNF6   | Disponibilidade do Sistema             | A plataforma deve ter uma disponibilidade mínima de 99,5% ao longo do ano. |
+| RNF7 | Manutenções Programadas                | Manutenções programadas devem ocorrer fora dos horários de pico e com comunicação prévia aos usuários. |
+| RNF8 | Plano de Recuperação                   | O sistema deve ter um plano de recuperação para minimizar o impacto de falhas inesperadas. |
+| RNF9   | Escalabilidade                         | O sistema deve ser escalável, permitindo a adição de novos servidores conforme o crescimento da base de usuários e eventos. |
+| RNF10 | Escalabilidade sem Modificações        | A escalabilidade deve ser possível sem a necessidade de grandes modificações na arquitetura existente. |
+| RNF11   | Compatibilidade de Navegadores e Dispositivos | A aplicação deve ser compatível com diferentes navegadores (Chrome, Firefox, Safari) e dispositivos (desktop, tablets e smartphones). |
+| RNF12 | Interface Responsiva                   | A interface deve ser responsiva, garantindo uma experiência uniforme e acessível em diferentes resoluções de tela. |
+| RNF13   | Interface Intuitiva                   | A interface deve ser intuitiva e de fácil navegação, respeitando os princípios de design centrado no usuário e acessibilidade. |
+| RNF14 | Tempo de Resposta Inferior a 2 Segundos | O tempo de resposta para qualquer ação deve ser inferior a 2 segundos, proporcionando uma navegação fluida. |
+
 
 ### 3.3.3 Usuários 
 
