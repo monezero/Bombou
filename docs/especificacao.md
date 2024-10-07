@@ -88,15 +88,13 @@ O "Bombou" não gerencia pagamentos de ingressos, não retendo o dinheiro dos us
 
 ### 3.4.1 Diagrama de Casos de Uso
 
-
-![dcu](/diagraamDeClasses.jpg)
-
-
+![dcu](/DIagramaDeCasosDeUso.jpg)
 
 
 ### 3.4.3 Diagrama de Classes 
 
  
-![dcu](/DIagramaDeCasosDeUso.jpg)
+![dcu](/diagraamDeClasses.jpg)
+
 
 
