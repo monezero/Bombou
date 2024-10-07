@@ -74,11 +74,15 @@ O "Bombou" não gerencia pagamentos de ingressos, não retendo o dinheiro dos us
 
 ### 3.3.3 Usuários 
 
-| Ator | Descrição |
-|--------------------|------------------------------------|
-| Coordenador |	Usuário gerente do sistema responsável pelo cadastro e manutenção de cursos de aperfeiçoamento. Possui acesso geral ao sistema. |
-| Secretaria |	Usuário responsável por registros de alunos, professores, turmas e gerência de matrículas. |
-| ... |	... |	... |
+| Ator             | Descrição |
+|------------------|-------------------------------------|
+| Coordenador      | Usuário gerente do sistema responsável pelo cadastro e manutenção de eventos, além da supervisão geral da plataforma. Possui acesso total às funcionalidades administrativas. |
+| Organizador      | Usuário responsável pela criação, edição e gestão de eventos, incluindo o gerenciamento de inscrições e feedback dos participantes. |
+| Cliente          | Usuário que navega na plataforma para pesquisar, comprar ingressos, avaliar eventos e consultar seu histórico de compras. |
+| Suporte Técnico   | Usuário responsável por atender as demandas de suporte dos clientes e organizadores, solucionando problemas e fornecendo orientações sobre o uso do sistema. |
+| Administrador    | Usuário que gerencia a infraestrutura da plataforma, garantindo a segurança, performance e disponibilidade do sistema. |
+| Auditor          | Usuário que realiza verificações e auditorias no sistema, garantindo conformidade e segurança em processos financeiros e de dados. |
+
 
 ## 3.4 Modelagem do Sistema
 
