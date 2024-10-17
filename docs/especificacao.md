@@ -1,131 +1,100 @@
 # 3. DOCUMENTO DE ESPECIFICAÇÃO DE REQUISITOS DE SOFTWARE
 
-Nesta parte do trabalho você deve detalhar a documentação dos requisitos do sistema proposto de acordo com as seções a seguir. Ressalta-se que aqui é utilizado como exemplo um sistema de gestão de cursos de aperfeiçoamento.
 
 ## 3.1 Objetivos deste documento
-Descrever e especificar as necessidades da Coordenação do Curso de Sistemas de Informação da PUC Minas que devem ser atendidas pelo projeto SCCA – Sistema de Cadastro de Cursos de Aperfeiçoamento.
+Descrever e especificar as necessidades que devem ser atendidas pelo projeto "Bombou" – uma plataforma de eventos personalizada. Este documento visa detalhar os requisitos do sistema, incluindo suas funcionalidades principais, limites e usuários, garantindo que a solução atenda às expectativas tanto dos consumidores quanto dos organizadores de eventos.
 
 ## 3.2 Escopo do produto
 
 ### 3.2.1 Nome do produto e seus componentes principais
-O produto será denominado SCCA – Sistema de Cadastro de Cursos de Aperfeiçoamento. Ele terá somente um componente (módulo) com os devidos elementos necessários à gestão de cursos.
+O produto será denominado "Bombou" e terá três componentes principais:
+
+**Cadastro de eventos:** Permite que os organizadores criem e gerenciem seus eventos na plataforma.<br>
+**Preferências personalizadas:** Relaciona os eventos aos interesses dos usuários, facilitando a busca por eventos que combinem com seus gostos.<br>
+**Recomendação de eventos:** Sugere eventos personalizados aos usuários com base nas suas preferências e interesses..<br>
 
 ### 3.2.2 Missão do produto
-Gerenciar informações sobre a oferta de cursos de aperfeiçoamento, gerenciar a composição das turmas, alunos, professores e matrículas. 
+Facilitar a descoberta e a participação em eventos que realmente interessem aos usuários, conectando suas preferências aos eventos adequados. Além disso, ajudar os organizadores a alcançarem o público certo, aumentando a relevância e o envolvimento com seus eventos. 
 
 ### 3.2.3 Limites do produto
-O SCCA não fornece nenhuma forma de avaliação de alunos, pagamento de parcelas do curso, pagamento a professore e agendamentos. O SCCA não contempla o atendimento a vários cursos de Sistemas de Informação de outras unidades da PUC Minas.
+O "Bombou" não gerencia pagamentos de ingressos, não retendo o dinheiro dos usuários. Todas as transações são realizadas em plataformas externas, garantindo que os organizadores recebam os pagamentos diretamente. Além disso, não possui um sistema para coletar avaliações; esse feedback deve ser feito em plataformas externas.
 
 ### 3.2.4 Benefícios do produto
 
 | # | Benefício | Valor para o Cliente |
 |--------------------|------------------------------------|----------------------------------------|
-|1	| Facilidade no cadastro de dados |	Essencial |
-|2 | Facilidade na recuperação de informações | Essencial | 
-|3 | Segurança no cadastro de matrículas | Essencial | 
-|4	| Melhoria na comunicação com os alunos	| Recomendável | 
+|1	| Personalização na descoberta de eventos |	Essencial |
+|2 | Alcance direcionado de eventos para o público correto	 | Essencial | 
+|3 | Navegação intuitiva para encontrar eventos relevantes | Essencial | 
+|4	| Maior eficiência para os organizadores dos eventos	| Recomendável | 
 
 ## 3.3 Descrição geral do produto
 
 ### 3.3.1 Requisitos Funcionais
 
 | Código | Requisito Funcional (Funcionalidade) | Descrição |
-|--------------------|------------------------------------|----------------------------------------|
-| RF1 | Gerenciar Curso de Aperfeiçoamento |	Processamento de Inclusão, Alteração, Exclusão e Consulta de Cursos de Aperfeiçoamento |
-| RF2 |	Gerenciar Professor	| Processamento de Inclusão, Alteração, Exclusão e Consulta de professores |
-| RF3	| Gerenciar Matrícula |	Processamento de Inclusão, Alteração, Exclusão e Consulta de Matrículas de alunos em Cursos de Aperfeiçoamento |
-| ... |	...	| ... |
+|--------|--------------------------------------|-------------------------------------------|
+| RF1    | Comprar Ingressos                    | O sistema deve permitir que o Cliente compre ingressos. |
+| RF2    | Filtrar Eventos                      | O sistema deve permitir que o Cliente filtre eventos. |
+| RF3    | Avaliar Eventos                      | O sistema deve permitir que o Cliente avalie eventos. |
+| RF4    | Consultar Histórico de Compras       | O sistema deve permitir que o Cliente consulte o histórico de compras. |
+| RF5    | Realizar Cadastro                    | O sistema deve permitir que o Cliente realize cadastro. |
+| RF6    | Realizar Login                       | O sistema deve permitir que o Cliente realize login. |
+| RF7    | Realizar Logout                      | O sistema deve permitir que o Cliente realize logout. |
+| RF8    | Escolher Método de Pagamento         | O sistema deve permitir que o Cliente escolha o método de pagamento durante a compra de ingressos. |
+| RF9    | Gerenciar Eventos                    | O sistema deve permitir que o Organizador gerencie eventos (cadastrar, editar, excluir, consultar eventos). |
+| RF10  | Cadastrar Novos Eventos              | O sistema deve permitir que o Organizador cadastre novos eventos. |
+| RF11  | Editar Eventos                       | O sistema deve permitir que o Organizador edite eventos existentes. |
+| RF12  | Excluir Eventos                      | O sistema deve permitir que o Organizador exclua eventos. |
+| RF13  | Consultar Eventos                    | O sistema deve permitir que o Organizador consulte eventos. |
+| RF14   | Criar Notificações Personalizadas    | O sistema deve permitir que o Organizador crie notificações personalizadas. |
+| RF15   | Enviar Notificações                  | O sistema deve permitir que o sistema envie notificações. |
+| RF16   | Enviar Recomendações                 | O sistema deve permitir que o sistema envie recomendações. |
+
 
 ### 3.3.2 Requisitos Não Funcionais
 
-| Código | Requisito Não Funcional (Restrição) |
-|--------------------|------------------------------------|
-| RNF1 | O ambiente operacional a ser utilizado é o Windows XP. |
-| RNF2 | O sistema deverá executar em um computador configurado com uma impressora de tecnologia laser ou de jato de tinta, a ser usada para impressão dos relatórios. |
-| RNF3 |	Segurança	O produto deve restringir o acesso por meio de senhas individuais para o usuário. |
-| ... |	... |	... |
+| Código | Requisito Não Funcional                | Descrição |
+|--------|---------------------------------------|-------------------------------------------|
+| RNF1   | Suporte a Usuários Simultâneos        | O sistema deve ser capaz de suportar até 10.000 usuários simultâneos, sem comprometer a performance. |
+| RNF2 | Tempos de Resposta Adequados          | Deve garantir tempos de resposta adequados, mesmo durante picos de acesso, como o lançamento de eventos populares. |
+| RNF3   | Segurança dos Dados                    | O sistema deve garantir a segurança dos dados dos usuários e transações financeiras, utilizando criptografia de ponta a ponta. |
+| RNF4 | Autenticação de Dois Fatores (2FA)    | O login deve incluir autenticação de dois fatores (2FA) para aumentar a segurança. |
+| RNF5 | Armazenamento Criptografado            | As informações sensíveis devem ser armazenadas de forma criptografada, garantindo a proteção contra acessos não autorizados. |
+| RNF6   | Disponibilidade do Sistema             | A plataforma deve ter uma disponibilidade mínima de 99,5% ao longo do ano. |
+| RNF7 | Manutenções Programadas                | Manutenções programadas devem ocorrer fora dos horários de pico e com comunicação prévia aos usuários. |
+| RNF8 | Plano de Recuperação                   | O sistema deve ter um plano de recuperação para minimizar o impacto de falhas inesperadas. |
+| RNF9   | Escalabilidade                         | O sistema deve ser escalável, permitindo a adição de novos servidores conforme o crescimento da base de usuários e eventos. |
+| RNF10 | Escalabilidade sem Modificações        | A escalabilidade deve ser possível sem a necessidade de grandes modificações na arquitetura existente. |
+| RNF11   | Compatibilidade de Navegadores e Dispositivos | A aplicação deve ser compatível com diferentes navegadores (Chrome, Firefox, Safari) e dispositivos (desktop, tablets e smartphones). |
+| RNF12 | Interface Responsiva                   | A interface deve ser responsiva, garantindo uma experiência uniforme e acessível em diferentes resoluções de tela. |
+| RNF13   | Interface Intuitiva                   | A interface deve ser intuitiva e de fácil navegação, respeitando os princípios de design centrado no usuário e acessibilidade. |
+| RNF14 | Tempo de Resposta Inferior a 2 Segundos | O tempo de resposta para qualquer ação deve ser inferior a 2 segundos, proporcionando uma navegação fluida. |
+
 
 ### 3.3.3 Usuários 
 
-| Ator | Descrição |
-|--------------------|------------------------------------|
-| Coordenador |	Usuário gerente do sistema responsável pelo cadastro e manutenção de cursos de aperfeiçoamento. Possui acesso geral ao sistema. |
-| Secretaria |	Usuário responsável por registros de alunos, professores, turmas e gerência de matrículas. |
-| ... |	... |	... |
+| Ator             | Descrição |
+|------------------|-------------------------------------|
+| Coordenador      | Usuário gerente do sistema responsável pelo cadastro e manutenção de eventos, além da supervisão geral da plataforma. Possui acesso total às funcionalidades administrativas. |
+| Organizador      | Usuário responsável pela criação, edição e gestão de eventos, incluindo o gerenciamento de inscrições e feedback dos participantes. |
+| Cliente          | Usuário que navega na plataforma para pesquisar, comprar ingressos, avaliar eventos e consultar seu histórico de compras. |
+| Suporte Técnico   | Usuário responsável por atender as demandas de suporte dos clientes e organizadores, solucionando problemas e fornecendo orientações sobre o uso do sistema. |
+| Administrador    | Usuário que gerencia a infraestrutura da plataforma, garantindo a segurança, performance e disponibilidade do sistema. |
+| Auditor          | Usuário que realiza verificações e auditorias no sistema, garantindo conformidade e segurança em processos financeiros e de dados. |
+
 
 ## 3.4 Modelagem do Sistema
 
 ### 3.4.1 Diagrama de Casos de Uso
-Como observado no diagrama de casos de uso da Figura 1, a secretária poderá gerenciar as matrículas e professores no sistema, enquanto o coordenador, além dessas funções, poderá gerenciar os cursos de aperfeiçoamento.
 
-#### Figura 1: Diagrama de Casos de Uso do Sistema.
+![dcu](/DIagramaDeCasosDeUso.jpg)
 
-![dcu](https://github.com/user-attachments/assets/41f6b731-b44e-43aa-911f-423ad6198f47)
- 
-### 3.4.2 Descrições de Casos de Uso
-
-Cada caso de uso deve ter a sua descrição representada nesta seção. Exemplo:
-
-#### Gerenciar Professor (CSU01)
-
-Sumário: A Secretária realiza a gestão (inclusão, remoção, alteração e consulta) dos dados sobre professores.
-
-Ator Primário: Secretária.
-
-Ator Secundário: Coordenador.
-
-Pré-condições: A Secretária deve ser validada pelo Sistema.
-
-Fluxo Principal:
-
-1) 	A Secretária requisita manutenção de professores.
-2) 	O Sistema apresenta as operações que podem ser realizadas: inclusão de um novo professor, alteração de um professor, a exclusão de um professor e a consulta de dados de um professor.
-3) 	A Secretária seleciona a operação desejada: Inclusão, Exclusão, Alteração ou Consulta, ou opta por finalizar o caso de uso.
-4) 	Se a Secretária desejar continuar com a gestão de professores, o caso de uso retorna ao passo 2; caso contrário o caso de uso termina.
-
-Fluxo Alternativo (3): Inclusão
-
-a)	A Secretária requisita a inclusão de um professor. <br>
-b)	O Sistema apresenta uma janela solicitando o CPF do professor a ser cadastrado. <br>
-c)	A Secretária fornece o dado solicitado. <br>
-d)	O Sistema verifica se o professor já está cadastrado. Se sim, o Sistema reporta o fato e volta ao início; caso contrário, apresenta um formulário em branco para que os detalhes do professor (Código, Nome, Endereço, CEP, Estado, Cidade, Bairro, Telefone, Identidade, Sexo, Fax, CPF, Data do Cadastro e Observação) sejam incluídos. <br>
-e)	A Secretária fornece os detalhes do novo professor. <br>
-f)	O Sistema verifica a validade dos dados. Se os dados forem válidos, inclui o novo professor e a grade listando os professores cadastrados é atualizada; caso contrário, o Sistema reporta o fato, solicita novos dados e repete a verificação. <br>
-
-Fluxo Alternativo (3): Remoção
-
-a)	A Secretária seleciona um professor e requisita ao Sistema que o remova. <br>
-b)	Se o professor pode ser removido, o Sistema realiza a remoção; caso contrário, o Sistema reporta o fato. <br>
-
-Fluxo Alternativo (3): Alteração
-
-a)	A Secretária altera um ou mais dos detalhes do professor e requisita sua atualização. <br>
-b)	O Sistema verifica a validade dos dados e, se eles forem válidos, altera os dados na lista de professores, caso contrário, o erro é reportado. <br>
- 
-Fluxo Alternativo (3): Consulta
-
-a)	A Secretária opta por pesquisar pelo nome ou código e solicita a consulta sobre a lista de professores. <br>
-b)	O Sistema apresenta uma lista professores. <br>
-c)	A Secretária seleciona o professor. <br>
-d)	O Sistema apresenta os detalhes do professor no formulário de professores. <br>
-
-Pós-condições: Um professor foi inserido ou removido, seus dados foram alterados ou apresentados na tela.
 
 ### 3.4.3 Diagrama de Classes 
 
-A Figura 2 mostra o diagrama de classes do sistema. A Matrícula deve conter a identificação do funcionário responsável pelo registro, bem com os dados do aluno e turmas. Para uma disciplina podemos ter diversas turmas, mas apenas um professor responsável por ela.
-
-#### Figura 2: Diagrama de Classes do Sistema.
  
-![dcu](https://github.com/user-attachments/assets/97ab1aa8-eb03-4b58-9ad5-1697d414a451)
+![dcu](/diagraamDeClasses.jpg)
 
-### 3.4.4 Descrições das Classes 
 
-| # | Nome | Descrição |
-|--------------------|------------------------------------|----------------------------------------|
-| 1	|	Aluno |	Cadastro de informações relativas aos alunos. |
-| 2	| Curso |	Cadastro geral de cursos de aperfeiçoamento. |
-| 3 |	Matrícula |	Cadastro de Matrículas de alunos nos cursos. |
-| 4 |	Turma |	Cadastro de turmas.
-| 5	|	Professor |	Cadastro geral de professores que ministram as disciplinas. |
-| ... |	... |	... |
+
