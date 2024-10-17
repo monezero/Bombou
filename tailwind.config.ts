@@ -9,6 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        bombou_roxo: "#965fd4",
+        bombou_slate: "#1d1a2f",
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
