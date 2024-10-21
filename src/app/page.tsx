@@ -41,7 +41,6 @@ export default function Home() {
             </div>
           </div>
 
-          
           <div className="flex items-center space-x-4">
             <button className="px-4 py-2 bg-bombou_roxo text-black font-semibold rounded-full">
               Acessar
@@ -55,7 +54,7 @@ export default function Home() {
       <main>
         <Swiper
           ref={swiperRef}
-          pagination={false} 
+          pagination={false}
           navigation={{
             nextEl: ".image-swiper-button-next",
             prevEl: ".image-swiper-button-prev",
@@ -65,7 +64,7 @@ export default function Home() {
           scrollbar={{ draggable: true }}
           className="h-[90vh] relative"
           onSlideChange={(swiper) => {
-            setActiveIndex(swiper.activeIndex); // atualiza o indice ativo
+            setActiveIndex(swiper.activeIndex);
           }}
         >
           {data.map((item) => (
@@ -76,14 +75,12 @@ export default function Home() {
                   alt="slider"
                   className="w-full h-full object-cover"
                 />
-                {/* texto na imagem */} // 
                 <div className="absolute bottom-4 left-4 text-white bg-black bg-opacity-50 p-4 rounded-md">
-                  <h2 className="text-lg font-semibold">{item.title}</h2>
+                  <h2 className="text-2xl font-semibold">{item.title}</h2>
                 </div>
               </div>
             </SwiperSlide>
           ))}
-          {/* setas de navegação */}
           <div className="flex absolute z-10 cursor-pointer right-1 image-swiper-button-next" style={{ top: 'calc(50% - 12px)' }}>
             <IoIosArrowForward className="w-8 h-8" />
           </div>
@@ -92,8 +89,7 @@ export default function Home() {
           </div>
         </Swiper>
 
-         {/* bullet points */}
-        <div className="flex justify-center absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20"> 
+        <div className="flex justify-center absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20">
           {data.map((_, index) => (
             <Bullet key={index} index={index} isActive={activeIndex === index} onClick={() => swiperRef.current.swiper.slideTo(index)} />
           ))}
@@ -101,6 +97,54 @@ export default function Home() {
 
         <div className="h-0.5 bg-bombou_roxo"></div>
       </main>
+
+      <div className="mt-16">
+        <div className="font-extrabold text-4xl ml-10">
+          Personalizado para você 
+        </div>
+        <div className="mt-8 ml-10 grid grid-cols-6 gap-8 gap-x-0">
+          {[
+            { id: 1, image: "/bombouroxo.png", title: "Baladas" },
+            { id: 2, image: "/bombouroxo.png", title: "Shows" },
+            { id: 3, image: "/bombouroxo.png", title: "Festivais" },
+            { id: 4, image: "/bombouroxo.png", title: "Palestras" },
+            { id: 5, image: "/bombouroxo.png", title: "Revéillon" },
+            { id: 6, image: "/bombouroxo.png", title: "Cursos" },
+            { id: 7, image: "/bombouroxo.png", title: "Internacional" },
+            { id: 9, image: "/bombouroxo.png", title: "Rock" },
+            { id: 10, image: "/bombouroxo.png", title: "Pagode" },
+            { id: 11, image: "/bombouroxo.png", title: "Eletrônica" },
+            { id: 12, image: "/bombouroxo.png", title: "Teatros" },
+            { id: 13, image: "/bombouroxo.png", title: "Infantil" },
+            
+          ].map((item) => (
+            <div
+              key={item.id}
+              className="bg-black border border-bombou_roxo shadow-lg rounded-lg p-4 flex flex-col items-center h-96 w-72"
+            >
+              {/* Imagem clicável */}
+              <button
+                onClick={() => console.log(`Imagem de ${item.title} foi clicada!`)}
+                className="focus:outline-none"
+              >
+                <img
+                  src={item.image}
+                  className="h-full w- mb-2 rounded-md object-cover"
+                  alt={item.title}
+                />
+              </button>
+
+              {/* Texto clicável */}
+              <button
+                onClick={() => console.log(`Texto ${item.title} foi clicado!`)}
+                className="focus:outline-none"
+              >
+                <span className="font-semibold text-lg">{item.title}</span>
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
     </>
   );
 }
