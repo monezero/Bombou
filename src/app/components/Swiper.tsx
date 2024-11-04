@@ -32,7 +32,7 @@ const CustomSwiper: React.FC<CustomSwiperProps> = ({ data }) => {
       modules={[Navigation, Autoplay]}
       autoplay={{ delay: 5000, disableOnInteraction: false }}
       scrollbar={{ draggable: true }}
-      className="h-[90vh] relative"
+      className="h-[80vh] relative"
       onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
     >
       {data.map((item) => (
