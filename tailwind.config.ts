@@ -1,3 +1,4 @@
+// tailwind.config.ts
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -14,8 +15,12 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      boxShadow: {
+        'custom': '0 0 20px rgba(255, 0, 255, 0.9)', // Cor mais forte (magenta)
+      },
     },
   },
   plugins: [],
 };
+
 export default config;

@@ -1,6 +1,7 @@
 "use client"
 import Link from "next/link";
 import CustomSwiper from "./components/Swiper";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const data = [
@@ -8,6 +9,9 @@ export default function Home() {
     { id: "2", image: "/festa1.png", title: "Seminários" },
     { id: "3", image: "/seminario.png", title: "Shows e muito mais!" },
   ];
+  
+
+ 
 
   return (
     <>
@@ -49,7 +53,7 @@ export default function Home() {
       <main>
         <CustomSwiper data={data} />
       </main>
-
+      <div className="h-0.5 bg-bombou_roxo"></div>
       <div className="mt-16">
         <div className="font-extrabold text-4xl ml-10">Temos de tudo</div>
         <div className="mt-8 ml-10 grid grid-cols-6 gap-8 gap-x-0">
@@ -69,8 +73,8 @@ export default function Home() {
           ].map((item) => (
             <div
               key={item.id}
-              className="relative bg-black border border-bombou_roxo shadow-lg rounded-lg h-96 w-72 overflow-hidden"
-            >
+              className="relative bg-black bg-opacity-70 backdrop-blur-sm border border-bombou_roxo shadow-lg rounded-lg h-96 w-72 overflow-hidden transition-transform duration-300 hover:scale-110 hover:shadow-custom" // Usando a sombra customizada
+>
               <button className="focus:outline-none h-full w-full">
                 <img
                   src={item.image}
@@ -99,7 +103,7 @@ export default function Home() {
           ].map((item) => (
             <div
               key={item.id}
-              className="relative bg-black border border-bombou_roxo shadow-lg rounded-lg h-56 w-72 overflow-hidden"
+              className="relative bg-black border border-bombou_roxo shadow-lg rounded-lg h-56 w-72 overflow-hidden transition-transform duration-300 hover:scale-110 hover:shadow-custom" // Usando a sombra customizada
             >
               <button className="focus:outline-none h-full w-full">
                 <img
@@ -129,7 +133,7 @@ export default function Home() {
           ].map((item) => (
             <div
               key={item.id}
-              className="relative bg-black border border-bombou_roxo shadow-lg rounded-lg h-56 w-72 overflow-hidden"
+              className="relative bg-black border border-bombou_roxo shadow-lg rounded-lg h-56 w-72 overflow-hidden transition-transform duration-300 hover:scale-110 hover:shadow-custom" // Usando a sombra customizada"
             >
               <button className="focus:outline-none h-full w-full">
                 <img
@@ -179,5 +183,7 @@ export default function Home() {
         </div>
       </footer>
     </>
+    
   );
 }
+
