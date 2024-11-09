@@ -42,7 +42,7 @@ Foram criadas diferentes personas para o projeto, divididas entre organizadores 
 
 ## 4.3 Protótipos das Interfaces
 
-![image](/prototipo_das_interfaces/inicio.jpg)
+![image](/prototipo_interfaces/inicio.jpg)
 
 1. Análise dos Princípios Gestálticos
 
@@ -81,7 +81,7 @@ Pesquisa: Testar se a barra de pesquisa permite que os usuários encontrem event
 Navegação por Categorias: Verificar se os usuários conseguem explorar as seções de eventos de forma intuitiva.
 Interatividade dos Botões: O botão "Acessar" e o carrinho de compras devem simular ações reais para que os usuários entendam seu funcionamento.
 
-![image](/prototipo_das_interfaces/login.jpg)
+![image](/prototipo_interfaces/login.jpg)
 
 1. Análise dos Princípios Gestálticos
 
@@ -123,7 +123,7 @@ Botão Entrar: Simular o processo de login e confirmar que o botão responde vis
 
 Link Registrar-se: Testar se o link “Registrar-se” redireciona o usuário para a tela de cadastro de maneira intuitiva.
 
-![image](/prototipo_das_interfaces/registro.jpg)
+![image](/prototipo_interfaces/registro.jpg)
 
 1. Análise dos Princípios Gestálticos
 
@@ -162,5 +162,4 @@ Campos de Registro: Verificar se os campos de email, nome, senha e confirmação
 Botão Registrar-se: Simular o processo de registro e confirmar que o botão responde visualmente ao clique.
 
 Link Acessar: Testar se o link “Acessar” redireciona o usuário para a tela de login de maneira intuitiva.
-
 
