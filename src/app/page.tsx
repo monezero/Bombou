@@ -2,6 +2,8 @@
 import Link from "next/link";
 import CustomSwiper from "./components/Swiper";
 import { useEffect, useState } from "react";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export default function Home() {
   const data = [
@@ -12,39 +14,7 @@ export default function Home() {
   
   return (
     <>
-      <header className="bg-black text-white p-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          {/* logo e nome */}
-          <div className="flex items-center space-x-2">
-            <img src="/bombouroxo.png" alt="Logo" className="h-14 w-14" />
-            <span className="text-lg font-semibold">Bombou</span>
-          </div>
-
-          {/* barra de pesquisa */}
-          <div className="flex items-center space-x-6">
-            <input
-              type="text"
-              placeholder="Pesquisar eventos..."
-              className="px-4 py-2 w-96 rounded-md border border-bombou_roxo bg-bombou_slate text-white h-12"
-            />
-            <div className="flex items-center space-x-1 px-5">
-              <button aria-label="Location" className="text-white">
-                📍
-              </button>
-              <span>Local</span>
-            </div>
-          </div>
-
-          <div className="flex items-center space-x-4">
-            <Link href="/account">
-              <button className="px-4 py-2 bg-bombou_roxo text-black font-semibold rounded-full">
-                Acessar
-              </button>
-            </Link>
-            <div className="flex items-center space-x-1">Carrinho de compras</div>
-          </div>
-        </div>
-      </header>
+      <Header />
       <div className="h-0.5 bg-bombou_roxo"></div>
 
       <main>
@@ -152,38 +122,7 @@ export default function Home() {
         </div>
       </div>
 
-      <footer className="bg-black text-white py-8 mt-16">
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-         
-          <div>
-            <h2 className="text-lg font-semibold mb-4">Navegação</h2>
-            <ul className="space-y-2">
-              <li><Link href="/"><span className="text-gray-400 hover:text-bombou_roxo">Home</span></Link></li>
-              <li><Link href="/account"><span className="text-gray-400 hover:text-bombou_roxo">Conta</span></Link></li>
-              <li><Link href="/events"><span className="text-gray-400 hover:text-bombou_roxo">Eventos</span></Link></li>
-              <li><Link href="/contact"><span className="text-gray-400 hover:text-bombou_roxo">Contato</span></Link></li>
-            </ul>
-          </div>
-
-       
-          <div>
-            <h2 className="text-lg font-semibold mb-4">Contato</h2>
-            <p className="text-gray-400">Email: contato@bombou.com</p>
-            <p className="text-gray-400">Telefone: (31) 1234-5678</p>
-            <p className="text-gray-400">Endereço: github.com/monezero</p>
-          </div>
-
-         
-          <div>
-            <h2 className="text-lg font-semibold mb-4">Redes Sociais</h2>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-bombou_roxo">Facebook</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-bombou_roxo">Instagram</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-bombou_roxo">Twitter</a></li>
-            </ul>
-          </div>
-        </div>
-      </footer>
+     <Footer />
     </>
     
   );

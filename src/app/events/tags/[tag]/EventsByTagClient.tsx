@@ -1,8 +1,9 @@
 "use client";
-
+import Header from '@/app/components/Header';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-
+import Link from 'next/link';
+import Footer from '@/app/components/Footer';
 interface Event {
   id: number;
   image: string;
@@ -22,7 +23,10 @@ const EventsByTagClient: React.FC<EventsByTagProps> = ({ events, tag }) => {
   const router = useRouter();
 
   return (
-    <div className="p-8">
+    <>
+    <Header />
+    <div className="h-0.5 bg-bombou_roxo"></div>
+    
       <h1 className="text-3xl font-bold mb-6">Eventos de {tag.charAt(0).toUpperCase() + tag.slice(1)}</h1>
 
       {events.length === 0 ? (
@@ -53,13 +57,8 @@ const EventsByTagClient: React.FC<EventsByTagProps> = ({ events, tag }) => {
         </div>
       )}
 
-      <button
-        onClick={() => router.back()}
-        className="mt-6 text-blue-500 hover:underline"
-      >
-        Voltar
-      </button>
-    </div>
+    <Footer />
+  </>
   );
 };
 
