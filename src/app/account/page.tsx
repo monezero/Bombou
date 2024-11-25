@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
@@ -14,6 +14,13 @@ export default function Account() {
   const [interests, setInterests] = useState<string[]>([]);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("loggedInUser");
+    if (storedUser) {
+      router.push("/");
+    }
+  }, [router]);
 
   const handleInterestChange = (interest: string) => {
     setInterests((prevInterests) =>
@@ -49,6 +56,7 @@ export default function Account() {
       }
 
       alert("Login realizado com sucesso!");
+      localStorage.setItem("loggedInUser", email);
       router.push('/'); // Redireciona para a tela inicial
     }
   };

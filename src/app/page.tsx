@@ -6,6 +6,22 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 export default function Home() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [username, setUsername] = useState("");
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("loggedInUser");
+    if (storedUser) {
+      const userData = JSON.parse(localStorage.getItem(storedUser) || "{}");
+      setUsername(capitalizeFirstLetter(userData.username));
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  const capitalizeFirstLetter = (string: string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
   const data = [
     { id: "1", image: "/festa.jpg", title: "Baladas" },
     { id: "2", image: "/festa1.png", title: "Seminários" },
@@ -14,7 +30,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
+      <Header cartItemCount={0} />
       <div className="h-0.5 bg-bombou_roxo"></div>
 
       <main className="flex-grow">
@@ -62,7 +78,9 @@ export default function Home() {
         </div>
 
         <div className="mt-16">
-          <div className="font-extrabold text-4xl ml-10">Personalizado para você</div>
+          <div className="font-extrabold text-4xl ml-10">
+            {isLoggedIn ? `Personalizado para ${username}` : "Personalizado para você"}
+          </div>
           <div className="mt-8 ml-10 grid grid-cols-6 gap-6 max-w-full">
             {[
               { id: 1, image: "/baladacard.jpg", title: "Baladas" },

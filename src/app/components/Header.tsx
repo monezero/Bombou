@@ -1,6 +1,6 @@
 "use client";
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { IoMdCart } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
 
@@ -9,6 +9,15 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ cartItemCount }) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("loggedInUser");
+    if (storedUser) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
   return (
     <header className="bg-black text-white p-4">
       <div className="container mx-auto flex items-center justify-between">
@@ -16,7 +25,7 @@ const Header: React.FC<HeaderProps> = ({ cartItemCount }) => {
         <div className="flex items-center space-x-2">
           <img src="/bombouroxo.png" alt="Logo" className="h-14 w-14" />
           <Link href="/">
-          <span className="text-lg font-semibold">Bombou</span>
+            <span className="text-lg font-semibold">Bombou</span>
           </Link>
         </div>
 
@@ -35,9 +44,9 @@ const Header: React.FC<HeaderProps> = ({ cartItemCount }) => {
         </div>
 
         <div className="flex items-center space-x-4">
-          <Link href="/account">
+          <Link href={isLoggedIn ? "/options" : "/account"}>
             <button className="px-4 py-2 bg-bombou_roxo text-black font-semibold rounded-full hover:bg-purple-800">
-              Acessar
+              {isLoggedIn ? "Opções" : "Acessar"}
             </button>
           </Link>
           <div className="flex items-center space-x-1 relative">
