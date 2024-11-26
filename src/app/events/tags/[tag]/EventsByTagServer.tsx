@@ -139,6 +139,7 @@ const mockEvents: Event[] = [
   { id: 104, image: "/infantilcard.jpg", title: "Infantil 3", description: "Show de mágica para crianças", date: "2024-11-25", location: "Rio de Janeiro", tag: "infantil" },
 ];
 
+
 export async function generateStaticParams() {
   const tags = Array.from(new Set(mockEvents.map(event => event.tag)));
   return tags.map(tag => ({ tag }));

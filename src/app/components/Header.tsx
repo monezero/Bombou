@@ -10,12 +10,33 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ cartItemCount }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [cartCount, setCartCount] = useState(cartItemCount);
 
   useEffect(() => {
     const storedUser = localStorage.getItem("loggedInUser");
     if (storedUser) {
       setIsLoggedIn(true);
     }
+
+    const storedCart = localStorage.getItem("cart");
+    if (storedCart && storedUser) {
+      setCartCount(JSON.parse(storedCart).length);
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const storedCart = localStorage.getItem("cart");
+      const storedUser = localStorage.getItem("loggedInUser");
+      if (storedCart && storedUser) {
+        setCartCount(JSON.parse(storedCart).length);
+      }
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
   }, []);
 
   return (
@@ -51,9 +72,9 @@ const Header: React.FC<HeaderProps> = ({ cartItemCount }) => {
           </Link>
           <div className="flex items-center space-x-1 relative">
             <IoMdCart className="w-6 h-6" />
-            {cartItemCount > 0 && (
+            {isLoggedIn && cartCount > 0 && (
               <span className="absolute top-4 right-[-10px] bg-red-500 text-white rounded-full h-5 w-5 flex items-center justify-center text-xs">
-                {cartItemCount}
+                {cartCount}
               </span>
             )}
           </div>
@@ -62,5 +83,4 @@ const Header: React.FC<HeaderProps> = ({ cartItemCount }) => {
     </header>
   );
 };
-
 export default Header;

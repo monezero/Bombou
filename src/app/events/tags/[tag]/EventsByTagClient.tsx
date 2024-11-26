@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Header from '@/app/components/Header';
 import Footer from '@/app/components/Footer';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface Event {
   id: number;
@@ -25,13 +25,34 @@ const EventsByTagClient: React.FC<EventsByTagProps> = ({ events, tag }) => {
   const router = useRouter();
   const [visibleEvents, setVisibleEvents] = useState(6); // Número inicial de eventos visíveis
   const [cart, setCart] = useState<Event[]>([]); // Estado do carrinho
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Estado de login
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("loggedInUser");
+    if (storedUser) {
+      setIsLoggedIn(true);
+    }
+
+    const storedCart = localStorage.getItem("cart");
+    if (storedCart) {
+      setCart(JSON.parse(storedCart));
+    }
+  }, []);
 
   const handleLoadMore = () => {
     setVisibleEvents(prev => prev + 6); // Carregar mais 6 eventos a cada clique
   };
 
   const handleAddToCart = (event: Event) => {
-    setCart(prevCart => [...prevCart, event]); // Adicionar evento ao carrinho
+    if (!isLoggedIn) {
+      alert("Você precisa estar logado para adicionar itens ao carrinho.");
+      return;
+    }
+
+    const updatedCart = [...cart, event];
+    setCart(updatedCart); // Adicionar evento ao carrinho
+    localStorage.setItem("cart", JSON.stringify(updatedCart)); // Persistir no localStorage
+    window.dispatchEvent(new Event("storage")); // Disparar evento de storage para atualizar o Header
   };
 
   return (
@@ -86,8 +107,6 @@ const EventsByTagClient: React.FC<EventsByTagProps> = ({ events, tag }) => {
           </button>
           </div>
         )}
-
-       
       </main>
 
       <Footer />
