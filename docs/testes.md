@@ -11,9 +11,15 @@ Material de apoio para esta etapa:
 
 [Avaliação_Heurística.xlsx](https://github.com/user-attachments/files/16501461/Avaliacao_Heuristica.xlsx) 
 
-[Relatorio_de_Testes_com_Usuario  - Vitor Gabriel Linas.docx](https://github.com/user-attachments/files/17967737/Relatorio_de_Testes_com_Usuario.-.Vitor.Gabriel.Linas.docx)
+[Relatorio_de_Testes_com_Usuario 1.docx](https://github.com/user-attachments/files/17969658/Relatorio_de_Testes_com_Usuario.1.docx)
+
+[Relatorio_de_Testes_com_Usuario 2.docx](https://github.com/user-attachments/files/17969660/Relatorio_de_Testes_com_Usuario.2.docx)
+
+[Relatorio_de_Testes_com_Usuario 3.docx](https://github.com/user-attachments/files/17969661/Relatorio_de_Testes_com_Usuario.3.docx)
+
 
 [Relatório_de_Testes_com_Usuário.docx](https://github.com/user-attachments/files/16501456/Relatorio_de_Testes_com_Usuario.docx)
 
 [Relatório_de_Testes_com_Usuário_exemplo.docx](https://github.com/user-attachments/files/16501459/Relatorio_de_Testes_com_Usuario_exemplo.docx)
+
 
