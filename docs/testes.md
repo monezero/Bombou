@@ -16,6 +16,13 @@ Material de apoio para esta etapa:
 
 [Relatorio_de_Testes_com_Usuario 3.docx](https://github.com/user-attachments/files/17969661/Relatorio_de_Testes_com_Usuario.3.docx)
 
+[Relatorio_de_Testes_com_Usuario 4.docx](https://github.com/user-attachments/files/17970481/Relatorio_de_Testes_com_Usuario.4.docx)
+
+[Relatorio_de_Testes_com_Usuario 5.docx](https://github.com/user-attachments/files/17970491/Relatorio_de_Testes_com_Usuario.5.docx)
+
+
+//
+
 
 [Avaliação_Heurística.xlsx](https://github.com/user-attachments/files/16501461/Avaliacao_Heuristica.xlsx) 
 
