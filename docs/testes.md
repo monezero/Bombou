@@ -8,9 +8,25 @@ Ao final, os relatórios gerados por cada membro deverão ser disponibilizados a
 
 Material de apoio para esta etapa:
 
+[Avaliação_Heurística (1).xlsx](https://github.com/user-attachments/files/17970426/Avaliacao_Heuristica.1.xlsx)
+
+
+[Relatorio_de_Testes_com_Usuario.1.docx](https://github.com/user-attachments/files/17971635/Relatorio_de_Testes_com_Usuario.1.docx)
+
+[Relatorio_de_Testes_com_Usuario.2.docx](https://github.com/user-attachments/files/17971636/Relatorio_de_Testes_com_Usuario.2.docx)
+
+[Relatorio_de_Testes_com_Usuario.3.docx](https://github.com/user-attachments/files/17971637/Relatorio_de_Testes_com_Usuario.3.docx)
+
+[Relatorio_de_Testes_com_Usuario.4.docx](https://github.com/user-attachments/files/17971638/Relatorio_de_Testes_com_Usuario.4.docx)
+
+[Relatorio_de_Testes_com_Usuario.5.docx](https://github.com/user-attachments/files/17971639/Relatorio_de_Testes_com_Usuario.5.docx)
+
+//
 
 [Avaliação_Heurística.xlsx](https://github.com/user-attachments/files/16501461/Avaliacao_Heuristica.xlsx) 
 
 [Relatório_de_Testes_com_Usuário.docx](https://github.com/user-attachments/files/16501456/Relatorio_de_Testes_com_Usuario.docx)
 
 [Relatório_de_Testes_com_Usuário_exemplo.docx](https://github.com/user-attachments/files/16501459/Relatorio_de_Testes_com_Usuario_exemplo.docx)
+
+
