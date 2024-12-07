@@ -11,7 +11,7 @@ interface Event {
 }
 
 // Mock data for events
-const mockEvents: Event[] = [
+export const mockEvents: Event[] = [
   // Baladas
   { id: 1, image: "/baladacard.jpg", title: "Balada 1", description: "Noite de balada com DJ e muita dança", date: "2024-12-01", location: "São Paulo", tag: "baladas" },
   { id: 2, image: "/baladacard.jpg", title: "Balada 2", description: "Balada com música ao vivo", date: "2024-12-02", location: "Rio de Janeiro", tag: "baladas" },

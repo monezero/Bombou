@@ -655,9 +655,6 @@ video {
 .h-5 {
   height: 1.25rem;
 }
-.h-56 {
-  height: 14rem;
-}
 .h-6 {
   height: 1.5rem;
 }
@@ -703,9 +700,6 @@ video {
 .max-w-7xl {
   max-width: 80rem;
 }
-.max-w-full {
-  max-width: 100%;
-}
 .max-w-md {
   max-width: 28rem;
 }
@@ -738,9 +732,6 @@ video {
 }
 .gap-2 {
   gap: 0.5rem;
-}
-.gap-6 {
-  gap: 1.5rem;
 }
 .gap-8 {
   gap: 2rem;

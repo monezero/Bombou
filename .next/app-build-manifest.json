@@ -12,20 +12,20 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/events/tags/[tag]/page": [
+    "/options/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/events/tags/[tag]/page.js"
+      "static/chunks/app/options/page.js"
     ],
     "/account/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/account/page.js"
     ],
-    "/options/page": [
+    "/events/tags/[tag]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/options/page.js"
+      "static/chunks/app/events/tags/[tag]/page.js"
     ]
   }
 }
