@@ -13,6 +13,7 @@ interface Event {
   date: string;
   location: string;
   tag: string;
+  price: string;
 }
 
 interface EventsByTagProps {
@@ -120,6 +121,10 @@ const EventsByTagClient: React.FC<EventsByTagProps> = ({ events, tag }) => {
                   <p className="text-gray-500">
                     <strong>Local:</strong> {event.location}
                   </p>
+                  <p className="text-gray-500">
+                    <strong>Preço</strong> {event.price}
+                  </p>
+                  
                   <button
                     className='h-10 w-full border mt-4 border-green-600 bg-green-500 rounded-md'
                     onClick={() => handleAddToCart(event)}

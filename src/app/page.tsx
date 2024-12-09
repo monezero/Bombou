@@ -15,6 +15,7 @@ type Event = {
   date: string;
   location: string;
   tag: string;
+  price: string;
 };
 
 const filters = [
@@ -215,6 +216,10 @@ export default function Home() {
                       <p className="text-gray-500">
                         <strong>Local:</strong> {event.location}
                       </p>
+                      <p className="text-gray-500">
+                    <strong>Preço</strong> {event.price}
+                  </p>
+                  
                       <button
                         className='h-10 w-full border mt-4 border-green-600 bg-green-500 rounded-md'
                         onClick={() => handleAddToCart(event)}
@@ -301,6 +306,10 @@ export default function Home() {
                           <p className="text-gray-500">
                             <strong>Local:</strong> {event.location}
                           </p>
+                          <p className="text-gray-500">
+                    <strong>Preço</strong> {event.price}
+                  </p>
+                  
                           <button
                             className='h-10 w-full border mt-4 border-green-600 bg-green-500 rounded-md'
                             onClick={() => handleAddToCart(event)}
@@ -337,6 +346,10 @@ export default function Home() {
                       <p className="text-gray-500">
                         <strong>Local:</strong> {event.location}
                       </p>
+                      <p className="text-gray-500">
+                    <strong>Preço</strong> {event.price}
+                  </p>
+                  
                       <button
                         className='h-10 w-full border mt-4 border-green-600 bg-green-500 rounded-md'
                         onClick={() => handleAddToCart(event)}

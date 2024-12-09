@@ -15,6 +15,7 @@ const Header: React.FC<HeaderProps> = ({ cartItemCount }) => {
   const [cart, setCart] = useState<any[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [feedbackMessage, setFeedbackMessage] = useState<string | null>(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -88,6 +89,24 @@ const Header: React.FC<HeaderProps> = ({ cartItemCount }) => {
     }
   };
 
+  const getTotalPrice = () => {
+    return cart.reduce((total, item) => total + parseFloat(item.price || 0), 0).toFixed(2);
+  };
+
+  const handleCheckout = () => {
+    // Exibir feedback para o usuário
+    setFeedbackMessage("Compra finalizada com sucesso!");
+    setTimeout(() => {
+      setFeedbackMessage(null);
+    }, 3000); // Ocultar mensagem após 3 segundos
+
+    // Limpar o carrinho
+    handleClearCart();
+
+    // Fechar o modal
+    handleCloseModal();
+  };
+
   return (
     <header className="bg-black text-white p-4 w-full z-50">
       <div className="container mx-auto flex items-center justify-between">
@@ -145,6 +164,8 @@ const Header: React.FC<HeaderProps> = ({ cartItemCount }) => {
                 {cart.map((event, index) => (
                   <li key={index} className="flex justify-between items-center mb-4">
                     <span className="text-white">{event.title}</span>
+                    <span className="text-white">{event.price}</span>
+
                     <button
                       className="text-red-500"
                       onClick={() => handleRemoveFromCart(event.id)}
@@ -162,11 +183,12 @@ const Header: React.FC<HeaderProps> = ({ cartItemCount }) => {
               >
                 Esvaziar Carrinho
               </button>
-              <Link href="/checkout">
-                <button className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700">
-                  Finalizar Compra
-                </button>
-              </Link>
+              <button
+                className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700"
+                onClick={handleCheckout}
+              >
+                Finalizar Compra
+              </button>
             </div>
             <button
               className="mt-4 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-700"
@@ -175,6 +197,12 @@ const Header: React.FC<HeaderProps> = ({ cartItemCount }) => {
               Fechar
             </button>
           </div>
+        </div>
+      )}
+
+      {feedbackMessage && (
+        <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded">
+          {feedbackMessage}
         </div>
       )}
     </header>
