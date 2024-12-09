@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { IoMdCart } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
+import { useRouter } from 'next/navigation';
 
 interface HeaderProps {
   cartItemCount: number;
@@ -11,6 +12,10 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ cartItemCount }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [cartCount, setCartCount] = useState(cartItemCount);
+  const [cart, setCart] = useState<any[]>([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const router = useRouter();
 
   useEffect(() => {
     const storedUser = localStorage.getItem("loggedInUser");
@@ -18,18 +23,20 @@ const Header: React.FC<HeaderProps> = ({ cartItemCount }) => {
       setIsLoggedIn(true);
     }
 
-    const storedCart = localStorage.getItem("cart");
-    if (storedCart && storedUser) {
-      setCartCount(JSON.parse(storedCart).length);
+    const userCart = localStorage.getItem(`${storedUser}_cart`);
+    if (userCart && storedUser) {
+      setCartCount(JSON.parse(userCart).length);
+      setCart(JSON.parse(userCart));
     }
   }, []);
 
   useEffect(() => {
     const handleStorageChange = () => {
-      const storedCart = localStorage.getItem("cart");
       const storedUser = localStorage.getItem("loggedInUser");
-      if (storedCart && storedUser) {
-        setCartCount(JSON.parse(storedCart).length);
+      if (storedUser) {
+        const userCart = localStorage.getItem(`${storedUser}_cart`);
+        setCartCount(userCart ? JSON.parse(userCart).length : 0);
+        setCart(userCart ? JSON.parse(userCart) : []);
       }
     };
 
@@ -39,8 +46,50 @@ const Header: React.FC<HeaderProps> = ({ cartItemCount }) => {
     };
   }, []);
 
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleRemoveFromCart = (eventId: number) => {
+    const storedUser = localStorage.getItem("loggedInUser");
+    if (storedUser) {
+      const userCartKey = `${storedUser}_cart`;
+      const updatedCart = [...cart];
+      const index = updatedCart.findIndex(event => event.id === eventId);
+      if (index !== -1) {
+        updatedCart.splice(index, 1);
+        setCart(updatedCart);
+        setCartCount(updatedCart.length);
+        localStorage.setItem(userCartKey, JSON.stringify(updatedCart));
+        window.dispatchEvent(new Event("storage"));
+      }
+    }
+  };
+
+  const handleClearCart = () => {
+    const storedUser = localStorage.getItem("loggedInUser");
+    if (storedUser) {
+      const userCartKey = `${storedUser}_cart`;
+      setCart([]);
+      setCartCount(0);
+      localStorage.removeItem(userCartKey);
+      window.dispatchEvent(new Event("storage"));
+    }
+  };
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      router.push(`/search?query=${searchQuery}`);
+    }
+  };
+
   return (
-    <header className="bg-black text-white p-4">
+    <header className="bg-black text-white p-4 w-full z-50">
       <div className="container mx-auto flex items-center justify-between">
         {/* logo e nome */}
         <div className="flex items-center space-x-2">
@@ -52,16 +101,18 @@ const Header: React.FC<HeaderProps> = ({ cartItemCount }) => {
 
         {/* barra de pesquisa */}
         <div className="flex items-center space-x-6">
-          <input
-            type="text"
-            placeholder="Pesquisar eventos..."
-            className="px-4 py-2 w-96 rounded-md border border-bombou_roxo bg-bombou_slate text-white h-12"
-          />
-          <div className="flex items-center space-x-1 px-5">
-            <button aria-label="Location" className="text-white">
+          <form onSubmit={handleSearchSubmit} className="flex items-center space-x-2">
+            <input
+              type="text"
+              placeholder="Pesquisar eventos..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="px-4 py-2 w-96 rounded-md border border-bombou_roxo bg-bombou_slate text-white h-12"
+            />
+            <button type="submit" className="text-white">
               <FaLocationDot className="w-6 h-6" />
             </button>
-          </div>
+          </form>
         </div>
 
         <div className="flex items-center space-x-4">
@@ -71,7 +122,9 @@ const Header: React.FC<HeaderProps> = ({ cartItemCount }) => {
             </button>
           </Link>
           <div className="flex items-center space-x-1 relative">
-            <IoMdCart className="w-6 h-6" />
+            <button onClick={handleOpenModal} className="text-white">
+              <IoMdCart className="w-6 h-6" />
+            </button>
             {isLoggedIn && cartCount > 0 && (
               <span className="absolute top-4 right-[-10px] bg-red-500 text-white rounded-full h-5 w-5 flex items-center justify-center text-xs">
                 {cartCount}
@@ -80,7 +133,52 @@ const Header: React.FC<HeaderProps> = ({ cartItemCount }) => {
           </div>
         </div>
       </div>
+
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+          <div className="bg-black p-8 rounded-lg w-96 border border-bombou_roxo max-h-[80vh] overflow-y-auto">
+            <h2 className="text-2xl font-bold mb-4 text-white">Carrinho</h2>
+            {cart.length === 0 ? (
+              <p className="text-gray-400">Seu carrinho está vazio.</p>
+            ) : (
+              <ul>
+                {cart.map((event, index) => (
+                  <li key={index} className="flex justify-between items-center mb-4">
+                    <span className="text-white">{event.title}</span>
+                    <button
+                      className="text-red-500"
+                      onClick={() => handleRemoveFromCart(event.id)}
+                    >
+                      Remover
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+            <div className="flex justify-between mt-4">
+              <button
+                className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-700"
+                onClick={handleClearCart}
+              >
+                Esvaziar Carrinho
+              </button>
+              <Link href="/checkout">
+                <button className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700">
+                  Finalizar Compra
+                </button>
+              </Link>
+            </div>
+            <button
+              className="mt-4 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-700"
+              onClick={handleCloseModal}
+            >
+              Fechar
+            </button>
+          </div>
+        </div>
+      )}
     </header>
   );
 };
+
 export default Header;

@@ -13,11 +13,11 @@ interface Event {
 // Mock data for events
 export const mockEvents: Event[] = [
   // Baladas
-  { id: 1, image: "/baladacard.jpg", title: "Balada 1", description: "Noite de balada com DJ e muita dança", date: "2024-12-01", location: "São Paulo", tag: "baladas" },
-  { id: 2, image: "/baladacard.jpg", title: "Balada 2", description: "Balada com música ao vivo", date: "2024-12-02", location: "Rio de Janeiro", tag: "baladas" },
-  { id: 3, image: "/baladacard.jpg", title: "Balada 3", description: "Balada temática anos 80", date: "2024-12-03", location: "Curitiba", tag: "baladas" },
-  { id: 4, image: "/baladacard.jpg", title: "Balada 1", description: "Noite de balada com DJ e muita dança", date: "2024-12-01", location: "São Paulo", tag: "baladas" },
-  { id: 5, image: "/baladacard.jpg", title: "Balada 2", description: "Balada com música ao vivo", date: "2024-12-02", location: "Rio de Janeiro", tag: "baladas" },
+  { id: 1, image: "/baladacard.jpg", title: "Balada Sunset", description: "Um pôr do sol incrível com música eletrônica ao vivo", date: "2024-12-01", location: "São Paulo", tag: "baladas" },
+  { id: 2, image: "/baladacard.jpg", title: "Noite Neon", description: "Balada com música ao vivo", date: "2024-12-02", location: "Rio de Janeiro", tag: "baladas" },
+  { id: 3, image: "/baladacard.jpg", title: "Casa Sapucaí", description: "Balada temática anos 80", date: "2024-12-03", location: "Curitiba", tag: "baladas" },
+  { id: 4, image: "/baladacard.jpg", title: "Major", description: "Noite de balada com DJ e muita dança", date: "2024-12-01", location: "São Paulo", tag: "baladas" },
+  { id: 5, image: "/baladacard.jpg", title: "Lab", description: "Balada com música ao vivo", date: "2024-12-02", location: "Rio de Janeiro", tag: "baladas" },
   { id: 6, image: "/baladacard.jpg", title: "Balada 3", description: "Balada temática anos 80", date: "2024-12-03", location: "Curitiba", tag: "baladas" },
   { id: 7, image: "/baladacard.jpg", title: "Balada 1", description: "Noite de balada com DJ e muita dança", date: "2024-12-01", location: "São Paulo", tag: "baladas" },
   { id: 8, image: "/baladacard.jpg", title: "Balada 2", description: "Balada com música ao vivo", date: "2024-12-02", location: "Rio de Janeiro", tag: "baladas" },
@@ -86,7 +86,7 @@ export const mockEvents: Event[] = [
   { id: 62, image: "/cursocard.jpg", title: "Curso 3", description: "Curso de desenvolvimento web", date: "2024-12-07", location: "Online", tag: "cursos" },
 
   // Internacional
-  { id: 63, image: "/internacionalcard.png", title: "Evento Internacional 1", description: "Eventos internacionais imperdíveis", date: "2024-12-10", location: "Nova York", tag: "internacional" },
+  { id: 63, image: "/internacionalcard.png", title: "Coldplay Experience", description: "Eventos internacionais imperdíveis", date: "2024-12-10", location: "Nova York", tag: "internacional" },
   { id: 64, image: "/internacionalcard.png", title: "Evento Internacional 2", description: "Conferência internacional", date: "2024-12-11", location: "Londres", tag: "internacional" },
   { id: 65, image: "/internacionalcard.png", title: "Evento Internacional 3", description: "Feira internacional de tecnologia", date: "2024-12-12", location: "Tóquio", tag: "internacional" },
   { id: 66, image: "/internacionalcard.png", title: "Evento Internacional 1", description: "Eventos internacionais imperdíveis", date: "2024-12-10", location: "Nova York", tag: "internacional" },

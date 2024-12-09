@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { mockEvents as events } from "./events/tags/[tag]/EventsByTagServer";
+import { Metadata } from "next";
 
 type Event = {
   id: number;
@@ -16,12 +17,15 @@ type Event = {
   tag: string;
 };
 
+
 export default function Home() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
   const [userTags, setUserTags] = useState<string[]>([]);
   const [personalizedEvents, setPersonalizedEvents] = useState<Event[]>([]);
   const [randomEvents, setRandomEvents] = useState<Event[]>([]);
+  const [cart, setCart] = useState<Event[]>([]);
+  const [feedbackMessage, setFeedbackMessage] = useState<string | null>(null);
 
   useEffect(() => {
     console.log("Component mounted");
@@ -33,6 +37,11 @@ export default function Home() {
       setIsLoggedIn(true);
       console.log("User Data:", userData); // Log para verificar os dados do usuário
       console.log("User Tags:", userData.interests); // Log para verificar as tags salvas pelo usuário
+    }
+
+    const storedCart = localStorage.getItem(`${storedUser}_cart`);
+    if (storedCart) {
+      setCart(JSON.parse(storedCart));
     }
 
     // Selecionar eventos aleatórios
@@ -100,6 +109,30 @@ export default function Home() {
     return uniqueEvents;
   };
 
+  const handleAddToCart = (event: Event) => {
+    if (!isLoggedIn) {
+      alert("Você precisa estar logado para adicionar itens ao carrinho.");
+      return;
+    }
+
+    const storedUser = localStorage.getItem("loggedInUser");
+    if (storedUser) {
+      const userCartKey = `${storedUser}_cart`;
+      const userCart = localStorage.getItem(userCartKey);
+      const cartItems = userCart ? JSON.parse(userCart) : [];
+      cartItems.push(event);
+      localStorage.setItem(userCartKey, JSON.stringify(cartItems));
+      setCart(cartItems); // Atualizar o estado do carrinho
+      window.dispatchEvent(new Event("storage")); // Disparar evento de storage para atualizar o Header
+
+      // Exibir feedback de usuário
+      setFeedbackMessage("Item adicionado ao carrinho!");
+      setTimeout(() => {
+        setFeedbackMessage(null);
+      }, 3000); // Ocultar mensagem após 3 segundos
+    }
+  };
+
   const data = [
     { id: 1, image: "/festa.jpg", title: "Baladas" },
     { id: 2, image: "/festa1.png", title: "Seminários" },
@@ -108,7 +141,8 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Header cartItemCount={0} />
+      
+      <Header cartItemCount={cart.length} />
       <div className="h-0.5 bg-bombou_roxo"></div>
 
       <main className="flex-grow">
@@ -183,7 +217,7 @@ export default function Home() {
                       </p>
                       <button
                         className='h-10 w-full border mt-4 border-green-600 bg-green-500 rounded-md'
-                        onClick={() => alert("Adicionar ao carrinho")}
+                        onClick={() => handleAddToCart(event)}
                       >
                         Comprar
                       </button>
@@ -218,7 +252,7 @@ export default function Home() {
                   </p>
                   <button
                     className='h-10 w-full border mt-4 border-green-600 bg-green-500 rounded-md'
-                    onClick={() => alert("Adicionar ao carrinho")}
+                    onClick={() => handleAddToCart(event)}
                   >
                     Comprar
                   </button>
@@ -228,6 +262,12 @@ export default function Home() {
           </div>
         </div>
       </main>
+
+      {feedbackMessage && (
+        <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded">
+          {feedbackMessage}
+        </div>
+      )}
 
       <Footer />
     </div>

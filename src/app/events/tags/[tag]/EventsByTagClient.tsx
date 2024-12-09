@@ -1,10 +1,9 @@
 "use client";
 
-import { useRouter } from 'next/navigation';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Header from '@/app/components/Header';
 import Footer from '@/app/components/Footer';
-import { useState, useEffect } from 'react';
 
 interface Event {
   id: number;
@@ -22,10 +21,10 @@ interface EventsByTagProps {
 }
 
 const EventsByTagClient: React.FC<EventsByTagProps> = ({ events, tag }) => {
-  const router = useRouter();
   const [visibleEvents, setVisibleEvents] = useState(6); // Número inicial de eventos visíveis
   const [cart, setCart] = useState<Event[]>([]); // Estado do carrinho
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Estado de login
+  const [feedbackMessage, setFeedbackMessage] = useState<string | null>(null);
 
   useEffect(() => {
     const storedUser = localStorage.getItem("loggedInUser");
@@ -33,7 +32,7 @@ const EventsByTagClient: React.FC<EventsByTagProps> = ({ events, tag }) => {
       setIsLoggedIn(true);
     }
 
-    const storedCart = localStorage.getItem("cart");
+    const storedCart = localStorage.getItem(`${storedUser}_cart`);
     if (storedCart) {
       setCart(JSON.parse(storedCart));
     }
@@ -49,10 +48,22 @@ const EventsByTagClient: React.FC<EventsByTagProps> = ({ events, tag }) => {
       return;
     }
 
-    const updatedCart = [...cart, event];
-    setCart(updatedCart); // Adicionar evento ao carrinho
-    localStorage.setItem("cart", JSON.stringify(updatedCart)); // Persistir no localStorage
-    window.dispatchEvent(new Event("storage")); // Disparar evento de storage para atualizar o Header
+    const storedUser = localStorage.getItem("loggedInUser");
+    if (storedUser) {
+      const userCartKey = `${storedUser}_cart`;
+      const userCart = localStorage.getItem(userCartKey);
+      const cartItems = userCart ? JSON.parse(userCart) : [];
+      cartItems.push(event);
+      localStorage.setItem(userCartKey, JSON.stringify(cartItems));
+      setCart(cartItems); // Atualizar o estado do carrinho
+      window.dispatchEvent(new Event("storage")); // Disparar evento de storage para atualizar o Header
+
+      // Exibir feedback de usuário
+      setFeedbackMessage("Item adicionado ao carrinho!");
+      setTimeout(() => {
+        setFeedbackMessage(null);
+      }, 3000); // Ocultar mensagem após 3 segundos
+    }
   };
 
   return (
@@ -77,8 +88,8 @@ const EventsByTagClient: React.FC<EventsByTagProps> = ({ events, tag }) => {
                   className="object-cover w-full h-48"
                 />
                 <div className="p-4">
-                  <h2 className="text-xl font-semibold">{event.title}</h2>
-                  <p className="text-gray-600">{event.description}</p>
+                  <h2 className="text-xl font-semibold text-white">{event.title}</h2>
+                  <p className="text-gray-400">{event.description}</p>
                   <p className="text-gray-500 mt-2">
                     <strong>Data:</strong> {event.date}
                   </p>
@@ -108,6 +119,12 @@ const EventsByTagClient: React.FC<EventsByTagProps> = ({ events, tag }) => {
           </div>
         )}
       </main>
+
+      {feedbackMessage && (
+        <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded">
+          {feedbackMessage}
+        </div>
+      )}
 
       <Footer />
     </div>
