@@ -20,11 +20,23 @@ interface EventsByTagProps {
   tag: string;
 }
 
+const filters = [
+  "hue-rotate(90deg)",
+  "hue-rotate(180deg)",
+  "hue-rotate(270deg)",
+  "brightness(0.5)",
+  "brightness(1.5)",
+  "contrast(2)",
+  "sepia(1)",
+  "invert(1)",
+];
+
 const EventsByTagClient: React.FC<EventsByTagProps> = ({ events, tag }) => {
   const [visibleEvents, setVisibleEvents] = useState(6); // Número inicial de eventos visíveis
   const [cart, setCart] = useState<Event[]>([]); // Estado do carrinho
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Estado de login
   const [feedbackMessage, setFeedbackMessage] = useState<string | null>(null);
+  const [eventFilters, setEventFilters] = useState<{ [key: number]: string }>({});
 
   useEffect(() => {
     const storedUser = localStorage.getItem("loggedInUser");
@@ -36,7 +48,14 @@ const EventsByTagClient: React.FC<EventsByTagProps> = ({ events, tag }) => {
     if (storedCart) {
       setCart(JSON.parse(storedCart));
     }
-  }, []);
+
+    // Gerar filtros aleatórios para eventos
+    const filters = {};
+    events.forEach(event => {
+      filters[event.id] = getRandomFilter();
+    });
+    setEventFilters(filters);
+  }, [events]);
 
   const handleLoadMore = () => {
     setVisibleEvents(prev => prev + 6); // Carregar mais 6 eventos a cada clique
@@ -66,6 +85,10 @@ const EventsByTagClient: React.FC<EventsByTagProps> = ({ events, tag }) => {
     }
   };
 
+  const getRandomFilter = () => {
+    return filters[Math.floor(Math.random() * filters.length)];
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       <Header cartItemCount={cart.length} />
@@ -86,6 +109,7 @@ const EventsByTagClient: React.FC<EventsByTagProps> = ({ events, tag }) => {
                   width={300}
                   height={200}
                   className="object-cover w-full h-48"
+                  style={{ filter: eventFilters[event.id] }}
                 />
                 <div className="p-4">
                   <h2 className="text-xl font-semibold text-white">{event.title}</h2>
