@@ -1,4 +1,4 @@
-// File: D:\Projetos\pmv-si-2024-2-pe3-t1-si_grupo-5\bombou\src\app\page.tsx
+// File: D:\Projetos\pmv-si-2024-2-pe3-t1-si_grupo-5\src\app\page.tsx
 import * as entry from '../../../src/app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
