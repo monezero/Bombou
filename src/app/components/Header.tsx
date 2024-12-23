@@ -1,18 +1,23 @@
+/* eslint-disable */
 "use client";
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { IoMdCart } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
 import { useRouter } from 'next/navigation';
+import type { Event } from '../events/tags/[tag]/EventsByTagServer';
 
 interface HeaderProps {
   cartItemCount: number;
+  title: string;
+  logoUrl: string;
+  id: number;
 }
 
-const Header: React.FC<HeaderProps> = ({ cartItemCount }) => {
+const Header = ({title, logoUrl, cartItemCount,}: HeaderProps) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [cartCount, setCartCount] = useState(cartItemCount);
-  const [cart, setCart] = useState<any[]>([]);
+  const [cart, setCart] = useState<Event[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [feedbackMessage, setFeedbackMessage] = useState<string | null>(null);
@@ -47,7 +52,7 @@ const Header: React.FC<HeaderProps> = ({ cartItemCount }) => {
     };
   }, []);
 
-  const handleOpenModal = () => {
+  const handleOpenModalLocal = () => {
     setIsModalOpen(true);
   };
 
@@ -89,9 +94,7 @@ const Header: React.FC<HeaderProps> = ({ cartItemCount }) => {
     }
   };
 
-  const getTotalPrice = () => {
-    return cart.reduce((total, item) => total + parseFloat(item.price || 0), 0).toFixed(2);
-  };
+ 
 
   const handleCheckout = () => {
     // Exibir feedback para o usuário
@@ -112,9 +115,9 @@ const Header: React.FC<HeaderProps> = ({ cartItemCount }) => {
       <div className="container mx-auto flex items-center justify-between">
         {/* logo e nome */}
         <div className="flex items-center space-x-2">
-          <img src="/bombouroxo.png" alt="Logo" className="h-14 w-14" />
+          <img src={logoUrl} alt="Logo" className="h-14 w-14" />
           <Link href="/">
-            <span className="text-lg font-semibold">Bombou</span>
+            <span className="text-lg font-semibold">{title}</span>
           </Link>
         </div>
 
@@ -141,7 +144,7 @@ const Header: React.FC<HeaderProps> = ({ cartItemCount }) => {
             </button>
           </Link>
           <div className="flex items-center space-x-1 relative">
-            <button onClick={handleOpenModal} className="text-white">
+            <button onClick={handleOpenModalLocal} className="text-white">
               <IoMdCart className="w-6 h-6" />
             </button>
             {isLoggedIn && cartCount > 0 && (

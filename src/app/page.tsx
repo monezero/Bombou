@@ -18,6 +18,10 @@ type Event = {
   price: string;
 };
 
+interface Filters {
+  [key: number]: string;
+}
+
 const filters = [
   "hue-rotate(90deg)",
   "hue-rotate(180deg)",
@@ -39,7 +43,8 @@ export default function Home() {
   const [feedbackMessage, setFeedbackMessage] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredEvents, setFilteredEvents] = useState<Event[]>([]);
-  const [eventFilters, setEventFilters] = useState<{ [key: number]: string }>({});
+  const [eventFilters, setEventFilters] = useState<Filters>({});
+
 
   useEffect(() => {
     console.log("Component mounted");
@@ -64,12 +69,12 @@ export default function Home() {
     console.log("Random Events:", randomEvents); // Log para verificar os eventos aleatórios
 
     // Gerar filtros aleatórios para eventos
-    const filters = {};
+    const filters: Filters = {};
     events.forEach(event => {
       filters[event.id] = getRandomFilter();
     });
     setEventFilters(filters);
-  }, []);
+  }, [events]);
 
   useEffect(() => {
     if (userTags.length > 0) {
@@ -167,18 +172,16 @@ export default function Home() {
     }
   };
 
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value);
-  };
+ 
 
   const getRandomFilter = () => {
     return filters[Math.floor(Math.random() * filters.length)];
   };
 
   const data = [
-    { id: 1, image: "/festa.jpg", title: "Baladas" },
-    { id: 2, image: "/festa1.png", title: "Seminários" },
-    { id: 3, image: "/seminario.png", title: "Shows e muito mais!" },
+    { id: "1", image: "/festa.jpg", title: "Baladas" },
+    { id: "2", image: "/festa1.png", title: "Seminários" },
+    { id: "3", image: "/seminario.png", title: "Shows e muito mais!" },
   ];
 
   return (
@@ -187,7 +190,7 @@ export default function Home() {
         <title>Bombou - Eventos</title>
         <meta name="description" content="Encontre os melhores eventos da cidade!" />
       </Head>
-      <Header cartItemCount={cart.length} />
+      <Header cartItemCount={cart.length} id={1} logoUrl="/logo.png" title="Eventos" />
       <div className="h-0.5 bg-bombou_roxo"></div>
 
       <main className="flex-grow">

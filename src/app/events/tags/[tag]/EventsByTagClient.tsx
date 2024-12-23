@@ -4,16 +4,11 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Header from '@/app/components/Header';
 import Footer from '@/app/components/Footer';
+import type { Event } from './EventsByTagServer';
 
-interface Event {
-  id: number;
-  image: string;
-  title: string;
-  description: string;
-  date: string;
-  location: string;
-  tag: string;
-  price: string;
+
+interface Filters {
+  [key: number]: string;
 }
 
 interface EventsByTagProps {
@@ -37,7 +32,7 @@ const EventsByTagClient: React.FC<EventsByTagProps> = ({ events, tag }) => {
   const [cart, setCart] = useState<Event[]>([]); // Estado do carrinho
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Estado de login
   const [feedbackMessage, setFeedbackMessage] = useState<string | null>(null);
-  const [eventFilters, setEventFilters] = useState<{ [key: number]: string }>({});
+  const [eventFilters, setEventFilters] = useState<Filters>({});
 
   useEffect(() => {
     const storedUser = localStorage.getItem("loggedInUser");
@@ -51,7 +46,7 @@ const EventsByTagClient: React.FC<EventsByTagProps> = ({ events, tag }) => {
     }
 
     // Gerar filtros aleatórios para eventos
-    const filters = {};
+    const filters: Filters = {};
     events.forEach(event => {
       filters[event.id] = getRandomFilter();
     });
@@ -92,7 +87,7 @@ const EventsByTagClient: React.FC<EventsByTagProps> = ({ events, tag }) => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Header cartItemCount={cart.length} />
+      <Header title="Eventos" logoUrl='/logo.png' cartItemCount={cart.length} id={1} />
       <div className="h-0.5 bg-bombou_roxo"></div>
       <div className='mt-8'/>
       <main className="flex-grow p-8">
